@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Clicker
 {
     class CEnemyTemplate
     {
+        [JsonInclude]
         string name;
+        [JsonInclude]
         string iconName;
-
+        [JsonInclude]
         int baseLife;
+        [JsonInclude]
         double lifeModifier;
-
+        [JsonInclude]
         int baseGold;
+        [JsonInclude]
         double goldModifier;
-
+        [JsonInclude]
         double spawnChance;
 
         public CEnemyTemplate(string name, string iconName, int baseLife, double lifeModifier, int baseGold, double goldModifier, double spawnChance)
