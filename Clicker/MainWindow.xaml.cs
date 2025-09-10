@@ -16,10 +16,17 @@ namespace Clicker;
 /// </summary>
 public partial class MainWindow : Window
 {
+    CEnemyTemplateList enemyList = new CEnemyTemplateList();
+    CEnemyTemplate selectedEnemy;
     
     public MainWindow()
     {
         InitializeComponent();
-        
+        DataContext = this;
+        enemyList.addEnemy("edd", "ff", 3, 33, 2, 4, 5);
+
+
     }
+
+    
 }

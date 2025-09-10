@@ -61,15 +61,15 @@ namespace Clicker
                 enemies.RemoveAt(id);
             }
         }
-        public List<string> getListOfEnemyNames()
-        {
-            List<string> enemyNames = new List<string>();
-            foreach (CEnemyTemplate enemy in enemies)
-            {
-                enemyNames.Add(enemy.Name());
-            }
-            return enemyNames;
-        }
+        //public List<string> getListOfEnemyNames()
+        //{
+        //    List<string> enemyNames = new List<string>();
+        //    foreach (CEnemyTemplate enemy in enemies)
+        //    {
+        //        enemyNames.Add(enemy.Name());
+        //    }
+        //    return enemyNames;
+        //}
 
         public void saveToJson (string path)
         {

@@ -5,8 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clicker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Editor" Height="470" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="137"/>
+            <RowDefinition Height="31"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="31"/>
+            <RowDefinition Height="50"/>
+
+            <RowDefinition Height="31"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="90"/>
+
+
+            <ColumnDefinition Width="210*"/>
+
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="30"/>
+
+            <ColumnDefinition Width="90*"/>
+
+
+            <ColumnDefinition Width="177*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <ListBox x:Name="NamesOfEnemies" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="3" ItemsSource="{Binding enemyList.Enemies}" SelectedItem="{Binding selectedEnemy}"/>
+        <Button x:Name="SaveButton" Grid.Row="7" Grid.Column="0" Content="Save" FontSize="17"/>
+        <Button x:Name="LoadButton" Grid.Row="7" Grid.Column="2" Content="Load" FontSize="17"/>
+        <Button Grid.Row="7" Grid.Column="4" Content="Add" FontSize="17"  Grid.ColumnSpan="2" />
+        <Button x:Name="RemoveButton" Grid.Row="7" Grid.Column="7" Content="Remove" FontSize="17" />
+        <TextBlock x:Name="SpawnChanceBlock" Grid.Row="7" Grid.Column="3" Text="{Binding Path=Name}" />
+        <TextBlock x:Name="LifeModifier" Grid.Row="5" Grid.Column="3" Text="{Binding Path=Name}" />
+        <TextBlock x:Name="BaseLifeBlock" Grid.Row="3" Grid.Column="3" Text="{Binding Path=Name}" />
+        <TextBlock x:Name="BaseGoldBlock" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="3" Text="{Binding Path=Name}" />
+        <TextBlock x:Name="GoldModifireBlock" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="3" Text="{Binding Path=Name}" />
+        <TextBlock Grid.Column="0" Text="List of enemies:" VerticalAlignment="Center" Grid.ColumnSpan="3" FontSize="14" Height="18" />
+        <TextBlock Grid.Row="2" Grid.Column="3" Text="Base life:" VerticalAlignment="Center" FontSize="14" Height="19" />
+        <TextBlock Grid.Row="2" Grid.Column="5" Text="Base gold:" VerticalAlignment="Center" FontSize="14" Height="19" />
+        <TextBlock Grid.Row="4" Grid.Column="5" Text="Gold modifier:" VerticalAlignment="Center" FontSize="14" Height="19" />
+        <TextBlock Grid.Row="4" Grid.Column="3" Text="Life Modifier:" VerticalAlignment="Center" FontSize="14" Height="19" />
+        <TextBlock Grid.Row="6" Grid.Column="3" Text="Spawn Chance (1-100):" VerticalAlignment="Center" FontSize="14" Height="19" />
+
+
+
 
     </Grid>
 </Window>
