@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,13 @@ using System.Windows;
 
 namespace Clicker
 {
-    class CEnemyTemplateList
+    public class CEnemyTemplateList 
     {
         [JsonInclude]
-        List<CEnemyTemplate> enemies;
+        public ObservableCollection<CEnemyTemplate> enemies { get; set; }
         public CEnemyTemplateList()
         {
-            enemies = new List<CEnemyTemplate>();
+            enemies = new ObservableCollection<CEnemyTemplate>();
         }
         public void addEnemy(string name, string iconName, int baseLife, double lifeModifier, int baseGold, double goldModifier, double spawnChance)
         {
@@ -28,7 +29,7 @@ namespace Clicker
             foreach (CEnemyTemplate enemy in enemies)
 
             {
-                if (enemy.Name() == name)
+                if (enemy.Name == name)
                 {
                     return enemy;
                 }
@@ -47,7 +48,7 @@ namespace Clicker
         {
             foreach (CEnemyTemplate enemy in enemies)
             {
-                if (enemy.Name() == name)
+                if (enemy.Name == name)
                 {
                     enemies.Remove(enemy);
                 }
