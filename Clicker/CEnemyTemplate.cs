@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Clicker
 {
-    public class CEnemyTemplate 
+    public class CEnemyTemplate : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         [JsonInclude]
         string name;
         [JsonInclude]
