@@ -45,8 +45,8 @@
         </Grid>
         <ListBox x:Name="NamesOfEnemies" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="3" ItemsSource="{Binding enemyList.enemies}" SelectedItem="{Binding selectedEnemy}" DisplayMemberPath="Name"/>
  
-        <Button x:Name="SaveButton" Grid.Row="7" Grid.Column="0" Content="Save" FontSize="17"/>
-        <Button x:Name="LoadButton" Grid.Row="7" Grid.Column="2" Content="Load" FontSize="17"/>
+        <Button x:Name="SaveButton" Grid.Row="7" Grid.Column="0" Content="Save" FontSize="17" Click="SaveButton_Click"/>
+        <Button x:Name="LoadButton" Grid.Row="7" Grid.Column="2" Content="Load" FontSize="17" Click="LoadButton_Click"/>
         <Button x:Name="AddButton" Grid.Row="7" Grid.Column="4" Content="Add" FontSize="17"  Grid.ColumnSpan="2" Height="50" VerticalAlignment="Top" Click="AddButton_Click"  />
         <Button x:Name="RemoveButton" Grid.Row="7" Grid.Column="7" Content="Remove" FontSize="17" Height="50" VerticalAlignment="Top" Click="RemoveButton_Click" />
         <TextBlock x:Name="SpawnChanceBlock" Grid.Row="7" Grid.Column="3" Text="{Binding selectedEnemy.SpawnChance }" />

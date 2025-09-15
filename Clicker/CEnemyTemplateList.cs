@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -24,44 +25,7 @@ namespace Clicker
             enemies.Add(new CEnemyTemplate(name, iconName, baseLife, lifeModifier, baseGold, goldModifier, spawnChance));
         }
 
-        public CEnemyTemplate getEnemyByName(string name)
-        {
-            foreach (CEnemyTemplate enemy in enemies)
-
-            {
-                if (enemy.Name == name)
-                {
-                    return enemy;
-                }
-            }
-            return null;
-        }
-        public CEnemyTemplate getEnemyByIndex(int id)
-        {
-            if (id >= 0 && id <= enemies.Count)
-            {
-                return enemies[id];
-            }
-            return null;
-        }
-        public void deleteEnemyByName(string name)
-        {
-            foreach (CEnemyTemplate enemy in enemies)
-            {
-                if (enemy.Name == name)
-                {
-                    enemies.Remove(enemy);
-                }
-            }
-        }
-
-        public void deletetEnemyByIndex(int id)
-        {
-            if (id >= 0 && id <= enemies.Count)
-            {
-                enemies.RemoveAt(id);
-            }
-        }
+        
         //public List<string> getListOfEnemyNames()
         //{
         //    List<string> enemyNames = new List<string>();
@@ -87,21 +51,46 @@ namespace Clicker
         public void loadFromJson(string path)
         {
             string jsonFromFile = File.ReadAllText(path);
-            List<CEnemyTemplate> enemies = new List<CEnemyTemplate>();
-            JsonDocument doc = JsonDocument.Parse(path);
+            enemies.Clear();
+            JsonDocument doc = JsonDocument.Parse(jsonFromFile);
             foreach (JsonElement element in doc.RootElement.EnumerateArray())
             {
-                string name = element.GetProperty("age").GetString();
-                string iconName = element.GetProperty("iconName").GetString();
-                int baseLife = element.GetProperty("baseLife").GetInt32();
-                double lifeModifier = element.GetProperty("lifeModifier").GetDouble();
-                int baseGold = element.GetProperty("baseGold").GetInt32();
-                double goldModifier = element.GetProperty("goldModifier").GetDouble();
-                double spawnChance = element.GetProperty("spawnChance").GetDouble();
+                string name = element.GetProperty("Name").GetString();                
+                string iconName = element.GetProperty("IconName").GetString();
+                int baseLife = element.GetProperty("BaseLife").GetInt32();
+                double lifeModifier = element.GetProperty("LifeModifier").GetDouble();
+                int baseGold = element.GetProperty("BaseGold").GetInt32();
+                double goldModifier = element.GetProperty("GoldModifier").GetDouble();
+                double spawnChance = element.GetProperty("SpawnChance").GetDouble();
                 CEnemyTemplate enemy = new CEnemyTemplate(name, iconName, baseLife, lifeModifier, baseGold, goldModifier, spawnChance);
                 enemies.Add(enemy);
             }
 
+        }
+        public string ShowSaveDialog()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+            saveFileDialog.DefaultExt = ".json";
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                return saveFileDialog.FileName;
+            }
+            return null;
+        }
+
+        public string ShowOpenDialog()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+            openFileDialog.DefaultExt = ".json";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                return openFileDialog.FileName;
+            }
+            return null;
         }
     }
 }

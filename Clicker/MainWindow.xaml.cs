@@ -77,8 +77,28 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     }
     public event PropertyChangedEventHandler PropertyChanged;
-    protected virtual void OnPropertyChanged(string propertyName)
+     public void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    private void SaveButton_Click(object sender, RoutedEventArgs e)
+    {
+        string filePath = enemyList.ShowSaveDialog();
+        if (!string.IsNullOrEmpty(filePath))
+        {
+            enemyList.saveToJson(filePath);
+        }
+    }
+
+    private void LoadButton_Click(object sender, RoutedEventArgs e)
+    {
+        string filePath = enemyList.ShowOpenDialog();
+        if (!string.IsNullOrEmpty(filePath))
+        {
+            enemyList.loadFromJson(filePath);
+            selectedEnemy = enemyList.enemies[0];
+        }
+
     }
 }
