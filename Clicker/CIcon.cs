@@ -17,8 +17,10 @@ namespace Clicker
         int iconHeight;
         Point position;
         Rectangle icon;
-        CIcon(int icoiconWidth, int inticonHeight, string imagePath)
+        public CIcon(int icoiconWidth, int inticonHeight, string imagePath)
         {
+            this.iconWidth = iconWidth;
+            this.iconHeight = iconHeight;
             position = new Point(0, 0);
             name = System.IO.Path.GetFileNameWithoutExtension(imagePath);
             icon = new Rectangle();
@@ -32,6 +34,8 @@ namespace Clicker
             icon.Fill = ib;
             icon.HorizontalAlignment = HorizontalAlignment.Left;
             icon.VerticalAlignment = VerticalAlignment.Center;
+            icon.Height = iconHeight;
+            icon.Width = iconWidth;
 
 
         }

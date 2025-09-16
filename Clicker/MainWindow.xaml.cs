@@ -21,6 +21,7 @@ namespace Clicker;
 public partial class MainWindow : Window, INotifyPropertyChanged
 {
     public CEnemyTemplateList enemyList { get; set; }
+    public CIconList iconList { get; set; }
     private CEnemyTemplate _selectedEnemy;
     public event PropertyChangedEventHandler PropertyChanged;
     public CEnemyTemplate selectedEnemy
