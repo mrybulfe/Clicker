@@ -1,5 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +22,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 {
     public CEnemyTemplateList enemyList { get; set; }
     private CEnemyTemplate _selectedEnemy;
+    public event PropertyChangedEventHandler PropertyChanged;
     public CEnemyTemplate selectedEnemy
     {
         get
@@ -76,7 +79,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         
 
     }
-    public event PropertyChangedEventHandler PropertyChanged;
+    
      public void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -101,4 +104,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
 
     }
+    private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        Point mousePosition = Mouse.GetPosition(scene);
+    }
+    
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clicker"
         mc:Ignorable="d"
-        Title="Editor" Height="470" Width="800">
+        Title="Editor_v.0.1" Height="470" Width="800" ResizeMode="NoResize" MouseDown="Window_MouseDown" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -60,6 +60,9 @@
         <TextBlock Grid.Row="4" Grid.Column="5" Text="Gold modifier:" VerticalAlignment="Center" FontSize="14" Height="19" />
         <TextBlock Grid.Row="4" Grid.Column="3" Text="Life Modifier:" VerticalAlignment="Center" FontSize="14" Height="19" />
         <TextBlock Grid.Row="6" Grid.Column="3" Text="Spawn Chance (1-100):" VerticalAlignment="Center" FontSize="14" Height="19" />
+        <Canvas Height="470" Width="800" Name="scene"/>
+
+
 
 
 
