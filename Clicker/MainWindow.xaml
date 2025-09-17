@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clicker"
         mc:Ignorable="d"
-        Title="Editor_v.0.1" Height="470" Width="800" ResizeMode="NoResize" MouseDown="Window_MouseDown" >
+        Title="Editor_v.0.1" Height="470" Width="800" ResizeMode="NoResize" >
     <Grid>
+        
         <Grid.RowDefinitions>
+            
             <RowDefinition Height="40"/>
             <RowDefinition Height="137"/>
             <RowDefinition Height="31"/>
@@ -44,23 +46,25 @@
             </Grid.ColumnDefinitions>
         </Grid>
         <ListBox x:Name="NamesOfEnemies" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="3" ItemsSource="{Binding enemyList.enemies}" SelectedItem="{Binding selectedEnemy}" DisplayMemberPath="Name"/>
- 
+
         <Button x:Name="SaveButton" Grid.Row="7" Grid.Column="0" Content="Save" FontSize="17" Click="SaveButton_Click"/>
         <Button x:Name="LoadButton" Grid.Row="7" Grid.Column="2" Content="Load" FontSize="17" Click="LoadButton_Click"/>
         <Button x:Name="AddButton" Grid.Row="7" Grid.Column="4" Content="Add" FontSize="17"  Grid.ColumnSpan="2" Height="50" VerticalAlignment="Top" Click="AddButton_Click"  />
         <Button x:Name="RemoveButton" Grid.Row="7" Grid.Column="7" Content="Remove" FontSize="17" Height="50" VerticalAlignment="Top" Click="RemoveButton_Click" />
-        <TextBlock x:Name="SpawnChanceBlock" Grid.Row="7" Grid.Column="3" Text="{Binding selectedEnemy.SpawnChance }" />
-        <TextBlock x:Name="LifeModifier" Grid.Row="5" Grid.Column="3" Text="{Binding selectedEnemy.LifeModifier}" />
-        <TextBlock x:Name="BaseLifeBlock" Grid.Row="3" Grid.Column="3" Text="{Binding selectedEnemy.BaseLife}" />
-        <TextBlock x:Name="BaseGoldBlock" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="3" Text="{Binding selectedEnemy.BaseGold}" />
-        <TextBlock x:Name="GoldModifireBlock" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="3" Text="{Binding selectedEnemy.GoldModifier}" />
+        <TextBox x:Name="SpawnChanceBlock" Grid.Row="7" Grid.Column="3" Text="{Binding selectedEnemy.SpawnChance }" />
+        <TextBox x:Name="LifeModifier" Grid.Row="5" Grid.Column="3" Text="{Binding selectedEnemy.LifeModifier}" />
+        <TextBox x:Name="BaseLifeBlock" Grid.Row="3" Grid.Column="3" Text="{Binding selectedEnemy.BaseLife}" />
+        <TextBox x:Name="BaseGoldBlock" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="3" Text="{Binding selectedEnemy.BaseGold}" />
+        <TextBox x:Name="GoldModifireBlock" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="3" Text="{Binding selectedEnemy.GoldModifier}" />
         <TextBlock Grid.Column="0" Text="List of enemies:" VerticalAlignment="Center" Grid.ColumnSpan="3" FontSize="14" Height="18" />
         <TextBlock Grid.Row="2" Grid.Column="3" Text="Base life:" VerticalAlignment="Center" FontSize="14" Height="19" />
         <TextBlock Grid.Row="2" Grid.Column="5" Text="Base gold:" VerticalAlignment="Center" FontSize="14" Height="19" />
         <TextBlock Grid.Row="4" Grid.Column="5" Text="Gold modifier:" VerticalAlignment="Center" FontSize="14" Height="19" />
         <TextBlock Grid.Row="4" Grid.Column="3" Text="Life Modifier:" VerticalAlignment="Center" FontSize="14" Height="19" />
         <TextBlock Grid.Row="6" Grid.Column="3" Text="Spawn Chance (1-100):" VerticalAlignment="Center" FontSize="14" Height="19" />
-        <Canvas Height="470" Width="800" Name="scene"/>
+
+        <ListBox Name="IconList" Grid.Row="0" Grid.Column="8" Grid.RowSpan="9"/>
+
 
 
 

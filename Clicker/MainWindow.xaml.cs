@@ -21,9 +21,10 @@ namespace Clicker;
 public partial class MainWindow : Window, INotifyPropertyChanged
 {
     public CEnemyTemplateList enemyList { get; set; }
-    public CIconList iconList { get; set; }
+
     private CEnemyTemplate _selectedEnemy;
     public event PropertyChangedEventHandler PropertyChanged;
+    Random rand = new Random();
     public CEnemyTemplate selectedEnemy
     {
         get
@@ -53,7 +54,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     private void AddButton_Click(object sender, RoutedEventArgs e)
     {
-        CEnemyTemplate newEnemy = new CEnemyTemplate("New Enemy", "default.png", 100, 1.0, 10, 1.0, 0.5);
+        CEnemyTemplate newEnemy = new CEnemyTemplate("New Enemy", "default.png", rand.Next(100), rand.NextDouble(), rand.Next(10), rand.NextDouble(), rand.NextDouble()*100);
         enemyList.enemies.Add(newEnemy);
         selectedEnemy = newEnemy;
     }
@@ -105,9 +106,6 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
 
     }
-    private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-    {
-        Point mousePosition = Mouse.GetPosition(scene);
-    }
+    
     
 }
