@@ -20,10 +20,11 @@ namespace Clicker;
 /// </summary>
 public partial class MainWindow : Window, INotifyPropertyChanged
 {
-    public CEnemyTemplateList enemyList { get; set; }
-
-    private CEnemyTemplate _selectedEnemy;
     public event PropertyChangedEventHandler PropertyChanged;
+    public CEnemyTemplateList enemyList { get; set; }
+    public CIconList iconList { get; set; }
+    private CEnemyTemplate _selectedEnemy;
+    private CIcon _selectedIcon;
     Random rand = new Random();
     public CEnemyTemplate selectedEnemy
     {
@@ -33,23 +34,41 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
         set
         {
-            if (_selectedEnemy != value)
-            {
-                _selectedEnemy = value;
-                OnPropertyChanged(nameof(selectedEnemy));
-            }
+            _selectedEnemy = value;
+            OnPropertyChanged(nameof(selectedEnemy));
+        }
+    }
+    public CIcon SelectedIcon
+    {
+        get
+        {
+            return _selectedIcon;
+        }
+        set
+        {
+            _selectedIcon = value;
+            OnPropertyChanged(nameof(SelectedIcon));
         }
     }
 
 
     public MainWindow()
     {
-        InitializeComponent();
+        InitializeComponent();        InitializeData();
+        DataContext = this;
+
+    }
+    private void InitializeData()
+    {
         enemyList = new CEnemyTemplateList();
+        iconList = new CIconList();
+        string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+
+    string imagesFolder = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Icons");        
+        iconList.LoadIconsFromFolder(imagesFolder);
         enemyList.addEnemy("spider", "spider.png", 100, 7.0, 177, 7.0, 0.5);
         enemyList.addEnemy("zombie", "zombie.png", 1030, 13.0, 110, 1.4, 0.7);
         selectedEnemy = enemyList.enemies[0];
-        DataContext = this;
     }
 
     private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -78,8 +97,6 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         {
             selectedEnemy = null;
         }
-        
-
     }
     
      public void OnPropertyChanged(string propertyName)
@@ -107,5 +124,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     }
     
-    
+    private void Icon_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (sender is FrameworkElement element && element.DataContext is CIcon icon)
+        {
+            SelectedIcon = icon;
+        }
+    }
 }

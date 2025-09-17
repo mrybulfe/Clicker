@@ -62,8 +62,21 @@
         <TextBlock Grid.Row="4" Grid.Column="5" Text="Gold modifier:" VerticalAlignment="Center" FontSize="14" Height="19" />
         <TextBlock Grid.Row="4" Grid.Column="3" Text="Life Modifier:" VerticalAlignment="Center" FontSize="14" Height="19" />
         <TextBlock Grid.Row="6" Grid.Column="3" Text="Spawn Chance (1-100):" VerticalAlignment="Center" FontSize="14" Height="19" />
-
-        <ListBox Name="IconList" Grid.Row="0" Grid.Column="8" Grid.RowSpan="9"/>
+        <ItemsControl x:Name="IconsItemsControl" Grid.Row="0" Grid.Column="8" Grid.RowSpan="9" ItemsSource="{Binding iconList.Icons}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical"/>
+                    <!-- Иконки в столбик -->
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding IconImage}" Width="70" Height="70" Margin="10"
+                   ToolTip="{Binding Name}"
+                   MouseDown="Icon_MouseDown"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
 
 

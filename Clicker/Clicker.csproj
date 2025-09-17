@@ -9,7 +9,74 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\goblin_1.png" />
+    <None Remove="Icons\goblin_5.png" />
+    <None Remove="Icons\goblin_7.png" />
+    <None Remove="Icons\goblin_8.png" />
+    <None Remove="Icons\skeleton_1.png" />
+    <None Remove="Icons\skeleton_2.png" />
+    <None Remove="Icons\troll_1.png" />
+    <None Remove="Images\goblin_1.png" />
+    <None Remove="Images\goblin_5.png" />
+    <None Remove="Images\goblin_7.png" />
+    <None Remove="Images\goblin_8.png" />
+    <None Remove="Images\skeleton_1.png" />
+    <None Remove="Images\skeleton_2.png" />
+    <None Remove="Images\troll_1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Icons\goblin_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\goblin_5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\goblin_7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\goblin_8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\skeleton_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\skeleton_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\troll_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\goblin_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\goblin_5.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\goblin_7.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\goblin_8.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\skeleton_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\skeleton_2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\troll_1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="9.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Новая папка1\" />
+    <Folder Include="Новая папка\" />
   </ItemGroup>
 
 </Project>
